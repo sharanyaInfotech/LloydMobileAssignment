@@ -2,9 +2,11 @@ package com.assignment.test.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.transition.Visibility
 import com.assignment.test.R
 import com.assignment.test.databinding.ActivityMainBinding
 import com.assignment.test.viewmodel.VehicleDetailsViewModel
@@ -24,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpRecycleView(){
+        val progressBar = binding.progressBar
         val recVehicles = binding.rvVehicles
         vehiclesAdapter = VehiclesAdapter()
 
@@ -37,7 +40,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewModel.responseVeh.observe(this, { listTvShows ->
-             vehiclesAdapter.vehicleList = listTvShows
+            //viewModel.progress.setValue(8) //View.VISIBLE
+            progressBar.apply {
+                visibility =  View.GONE
+                viewModel.progress.value = 8}
+            vehiclesAdapter.vehicleList = listTvShows
         })
     }
 }

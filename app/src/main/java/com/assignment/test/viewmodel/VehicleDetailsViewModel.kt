@@ -8,13 +8,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.assignment.test.Api.ApiService
 import com.assignment.test.models.VehicleItem
-import com.assignment.test.repository.VehicleDetailsRepository
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 
 //class VehicleDetailsViewModel @ViewModelInject constructor(private val repository: VehicleDetailsRepository) : ViewModel() {
 class VehicleDetailsViewModel @ViewModelInject constructor(private val apiHelper: ApiService) : ViewModel() {
-
+    var progress = MutableLiveData<Int>()
     //Coroutine exceptionhandler
     private val exceptionHandler = CoroutineExceptionHandler { _, exception ->
         _response.postValue(emptyList())
@@ -25,18 +24,20 @@ class VehicleDetailsViewModel @ViewModelInject constructor(private val apiHelper
     get() = _response
 
     init {
+        progress.setValue(0) //View.VISIBLE
         getAllVehicleList()
     }
 
 
 
     private fun getAllVehicleList() = viewModelScope.launch(exceptionHandler) {
-        apiHelper.getVehicles().let {response ->
+        apiHelper.getVehicles().let { response ->
             if(response.isSuccessful){
                 _response.postValue(apiHelper.getVehicles().body()?.results)
             }else{
                 Log.d("tag", "getAllVehicleDetails Error: ${apiHelper.getVehicles().code()}")
             }
+
         }
     }
 }
