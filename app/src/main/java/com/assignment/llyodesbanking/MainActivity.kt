@@ -1,4 +1,4 @@
-package com.assignment.test.ui
+package com.assignment.llyodesbanking
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,10 +6,9 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.transition.Visibility
-import com.assignment.test.R
-import com.assignment.test.databinding.ActivityMainBinding
-import com.assignment.test.viewmodel.VehicleDetailsViewModel
+import com.assignment.llyodesbanking.databinding.ActivityMainBinding
+import com.assignment.llyodesbanking.ui.VehiclesAdapter
+import com.assignment.llyodesbanking.viewmodel.VehicleDetailsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

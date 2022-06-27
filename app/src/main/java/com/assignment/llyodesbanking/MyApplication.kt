@@ -1,4 +1,4 @@
-package com.assignment.test
+package com.assignment.llyodesbanking
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

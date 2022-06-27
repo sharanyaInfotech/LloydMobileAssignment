@@ -6,7 +6,7 @@
     <data>
         <variable
             name="vehicleData"
-            type="com.assignment.test.models.VehicleItem" />
+            type="com.assignment.llyodesbanking.models.VehicleItem" />
     </data>
 
     <androidx.cardview.widget.CardView

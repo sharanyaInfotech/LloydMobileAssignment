@@ -1,4 +1,4 @@
-package com.assignment.test.models
+package com.assignment.llyodesbanking.models
 
 import java.util.*
 

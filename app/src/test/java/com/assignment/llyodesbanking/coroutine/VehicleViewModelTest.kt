@@ -1,13 +1,11 @@
-package com.assignment.test.coroutine
+package com.assignment.llyodesbanking.coroutine
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import com.assignment.test.Api.ApiService
-import com.assignment.test.models.VehicleDataModel
-import com.assignment.test.models.VehicleItem
-import com.assignment.test.repository.VehicleDetailsRepository
-import com.assignment.test.viewmodel.VehicleDetailsViewModel
-import kotlinx.coroutines.Deferred
+import com.assignment.llyodesbanking.Api.ApiService
+import com.assignment.llyodesbanking.models.VehicleItem
+import com.assignment.llyodesbanking.repository.VehicleDetailsRepository
+import com.assignment.llyodesbanking.viewmodel.VehicleDetailsViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.After
 import org.junit.Before
@@ -17,9 +15,7 @@ import org.junit.rules.TestRule
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito.*
-import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
-import retrofit2.Response
 
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
@@ -45,9 +41,9 @@ class VehicleViewModelTest {
 
     @Before
     fun setUp(){
-        MockitoAnnotations.initMocks(this)
+        //MockitoAnnotations.initMocks(this)
         //apiHelper = ApiService
-        vehicleViewModel = VehicleDetailsViewModel(apiHelper)
+        //vehicleViewModel = VehicleDetailsViewModel(apiHelper)
     }
 
     //success
@@ -77,7 +73,7 @@ class VehicleViewModelTest {
             val viewModel = VehicleDetailsViewModel(apiHelper)
             viewModel.responseVeh.observeForever(apiVehicleObserver)
             verify(apiHelper).getVehicles()
-            verify(apiVehicleObserver).onChanged(null)
+            verify(apiVehicleObserver).onChanged(emptyList())
             viewModel.responseVeh.removeObserver(apiVehicleObserver)
         }
     }

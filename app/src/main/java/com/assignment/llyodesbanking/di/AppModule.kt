@@ -1,14 +1,13 @@
-package com.assignment.test.di
+package com.assignment.llyodesbanking.di
 
-import com.assignment.test.Api.ApiService
-import com.assignment.test.utils.Constants
+import com.assignment.llyodesbanking.Api.ApiService
+import com.assignment.llyodesbanking.utils.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import javax.inject.Singleton
 
 @Module

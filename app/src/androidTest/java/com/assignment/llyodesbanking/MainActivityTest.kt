@@ -1,4 +1,4 @@
-package com.assignment.test
+package com.assignment.llyodesbanking
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
@@ -13,7 +13,6 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
 import androidx.test.rule.ActivityTestRule
-import com.assignment.test.ui.MainActivity
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers

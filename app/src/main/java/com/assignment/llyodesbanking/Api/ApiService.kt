@@ -1,7 +1,7 @@
-package com.assignment.test.Api
+package com.assignment.llyodesbanking.Api
 
-import com.assignment.test.models.VehicleDataModel
-import com.assignment.test.utils.Constants
+import com.assignment.llyodesbanking.models.VehicleDataModel
+import com.assignment.llyodesbanking.utils.Constants
 import retrofit2.Response
 import retrofit2.http.GET
 

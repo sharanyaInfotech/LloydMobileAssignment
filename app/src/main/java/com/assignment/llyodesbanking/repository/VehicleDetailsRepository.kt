@@ -1,6 +1,6 @@
-package com.assignment.test.repository
+package com.assignment.llyodesbanking.repository
 
-import com.assignment.test.Api.ApiService
+import com.assignment.llyodesbanking.Api.ApiService
 import javax.inject.Inject
 
 class VehicleDetailsRepository @Inject constructor(private val apiService: ApiService){

@@ -1,4 +1,4 @@
-package com.assignment.test.viewmodel
+package com.assignment.llyodesbanking.viewmodel
 
 import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
@@ -6,8 +6,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.assignment.test.Api.ApiService
-import com.assignment.test.models.VehicleItem
+import com.assignment.llyodesbanking.Api.ApiService
+import com.assignment.llyodesbanking.models.VehicleItem
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 

@@ -1,14 +1,12 @@
-package com.assignment.test.ui
+package com.assignment.llyodesbanking.ui
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.assignment.test.R
-import com.assignment.test.databinding.LayoutVehicleListIemBinding
-import com.assignment.test.models.VehicleItem
+import com.assignment.llyodesbanking.databinding.LayoutVehicleListIemBinding
+import com.assignment.llyodesbanking.models.VehicleItem
 
 class VehiclesAdapter(): RecyclerView.Adapter<VehiclesAdapter.VehicleViewHolder>() {
 
