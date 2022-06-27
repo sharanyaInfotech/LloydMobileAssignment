@@ -6,30 +6,37 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.assignment.test.Api.ApiService
 import com.assignment.test.models.VehicleItem
 import com.assignment.test.repository.VehicleDetailsRepository
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 
-class VehicleDetailsViewModel @ViewModelInject constructor(private val repository: VehicleDetailsRepository) :
-    ViewModel() {
+//class VehicleDetailsViewModel @ViewModelInject constructor(private val repository: VehicleDetailsRepository) : ViewModel() {
+class VehicleDetailsViewModel @ViewModelInject constructor(private val apiHelper: ApiService) : ViewModel() {
+
+    //Coroutine exceptionhandler
+    private val exceptionHandler = CoroutineExceptionHandler { _, exception ->
+        _response.postValue(emptyList())
+    }
 
     private val _response = MutableLiveData<List<VehicleItem>>()
     val responseVeh: LiveData<List<VehicleItem>>
     get() = _response
 
     init {
-        getAllTvShows()
+        getAllVehicleList()
     }
 
-    private fun getAllTvShows() = viewModelScope.launch {
-        //repository.getVehicleDetails().let {response ->
 
-            if (repository.getVehicleDetails().isSuccessful){
-                _response.postValue(repository.getVehicleDetails().body()?.results)
-                Log.d("tag", "vEHICLE LIST: ${_response}")
+
+    private fun getAllVehicleList() = viewModelScope.launch(exceptionHandler) {
+        apiHelper.getVehicles().let {response ->
+            if(response.isSuccessful){
+                _response.postValue(apiHelper.getVehicles().body()?.results)
             }else{
-                Log.d("tag", "getAllVehicleDetails Error: ${repository.getVehicleDetails().code()}")
+                Log.d("tag", "getAllVehicleDetails Error: ${apiHelper.getVehicles().code()}")
             }
-//        }
+        }
     }
 }

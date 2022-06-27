@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpRecycleView(){
         val recVehicles = binding.rvVehicles
-        vehiclesAdapter = VehiclesAdapter(this)
+        vehiclesAdapter = VehiclesAdapter()
 
         recVehicles.apply {
             adapter = vehiclesAdapter
